@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uide Fast Food — Онлайн Меню</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Rubik:wght@500;700;900&display=swap" rel="stylesheet">
+    <title>Uide Fast Food — Караул</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Rubik:wght@500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0f0f12;
-            --card-bg: #18181c;
-            --primary: #ff9800;
-            --primary-glow: rgba(255, 152, 0, 0.3);
-            --accent: #ff5722;
+            --bg: #121216;
+            --card-bg: #1a1a20;
+            --primary: #ffb703;
+            --primary-glow: rgba(255, 183, 3, 0.25);
+            --accent: #fb8500;
             --text: #ffffff;
-            --text-sub: #a0a0ab;
+            --text-sub: #9e9ea7;
             --green: #25D366;
+            --border: rgba(255, 255, 255, 0.08);
         }
 
         * {
@@ -26,20 +27,20 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            background-color: var(--bg);
             color: var(--text);
-            padding-bottom: 100px;
+            padding-bottom: 110px;
         }
 
         /* HEADER & BRANDING */
         header {
-            background: linear-gradient(180deg, #1f1f26 0%, #121215 100%);
-            padding: 20px 16px 15px;
-            border-bottom: 2px solid rgba(255, 152, 0, 0.2);
+            background: linear-gradient(180deg, #1d1d26 0%, #121216 100%);
+            padding: 16px;
+            border-bottom: 2px solid rgba(255, 183, 3, 0.3);
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
         }
 
         .header-top {
@@ -48,58 +49,58 @@
             align-items: center;
         }
 
-        .logo-box {
+        .brand-box {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
-        .logo-icon {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, #ff9800, #ff5722);
-            border-radius: 12px;
+        .brand-logo {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px var(--primary-glow);
+            box-shadow: 0 4px 20px var(--primary-glow);
         }
 
-        .logo-icon svg {
+        .brand-logo svg {
             width: 28px;
             height: 28px;
-            fill: white;
+            fill: #121216;
         }
 
-        .brand-name {
+        .brand-title {
             font-family: 'Rubik', sans-serif;
             font-size: 20px;
             font-weight: 900;
-            line-height: 1.1;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            background: linear-gradient(45deg, #ffa726, #ff5722);
+            background: linear-gradient(45deg, #ffb703, #ff8500);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .brand-sub {
+        .brand-subtitle {
             font-size: 10px;
             color: var(--text-sub);
             letter-spacing: 2px;
             text-transform: uppercase;
+            font-weight: 600;
         }
 
         .lang-btn {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 152, 0, 0.4);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--primary);
             color: var(--primary);
-            padding: 6px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: 700;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.2s;
         }
 
         .lang-btn:active {
@@ -109,14 +110,14 @@
         .info-card {
             margin-top: 12px;
             background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            padding: 10px 12px;
+            border-radius: 14px;
+            padding: 10px 14px;
             font-size: 11px;
             color: var(--text-sub);
             display: flex;
             flex-direction: column;
             gap: 4px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
         }
 
         .info-card a {
@@ -125,15 +126,15 @@
             font-weight: 600;
         }
 
-        /* SEARCH & CATEGORIES */
-        .search-container {
-            padding: 14px 16px 6px;
+        /* SEARCH BAR */
+        .search-wrap {
+            padding: 14px 16px 4px;
         }
 
-        .search-bar {
+        .search-input {
             width: 100%;
             background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border);
             border-radius: 14px;
             padding: 12px 16px;
             color: white;
@@ -142,11 +143,12 @@
             transition: 0.3s;
         }
 
-        .search-bar:focus {
+        .search-input:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 10px var(--primary-glow);
+            box-shadow: 0 0 12px var(--primary-glow);
         }
 
+        /* CATEGORIES HORIZONTAL SCROLL */
         .cats-scroll {
             display: flex;
             gap: 8px;
@@ -159,7 +161,7 @@
 
         .cat-chip {
             background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border);
             color: var(--text-sub);
             padding: 8px 16px;
             border-radius: 20px;
@@ -171,27 +173,25 @@
         }
 
         .cat-chip.active {
-            background: linear-gradient(135deg, #ff9800, #ff5722);
-            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #121216;
             border-color: transparent;
-            box-shadow: 0 4px 12px var(--primary-glow);
+            font-weight: 700;
+            box-shadow: 0 4px 15px var(--primary-glow);
         }
 
-        /* MENU ITEMS */
-        .menu-grid {
-            padding: 10px 16px;
+        /* MENU GRID & CARDS */
+        .menu-section {
+            padding: 6px 16px;
         }
 
-        .section-header {
+        .section-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--primary);
-            margin: 16px 0 10px;
+            margin: 18px 0 10px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .menu-card {
@@ -202,8 +202,8 @@
             display: flex;
             align-items: center;
             gap: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
 
         .card-img {
@@ -215,25 +215,31 @@
             flex-shrink: 0;
         }
 
-        .card-details {
+        .card-info {
             flex-grow: 1;
         }
 
-        .card-title {
+        .card-name {
             font-size: 14px;
             font-weight: 600;
             margin-bottom: 4px;
-            line-height: 1.2;
+            line-height: 1.25;
         }
 
         .card-price {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 700;
             color: var(--primary);
         }
 
-        .btn-add {
-            background: rgba(255, 152, 0, 0.15);
+        .card-price-sub {
+            font-size: 11px;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
+
+        .btn-action {
+            background: rgba(255, 183, 3, 0.12);
             color: var(--primary);
             border: 1px solid var(--primary);
             padding: 8px 14px;
@@ -242,80 +248,82 @@
             font-weight: 700;
             cursor: pointer;
             transition: 0.2s;
+            white-space: nowrap;
         }
 
-        .btn-add:active {
+        .btn-action:active {
             background: var(--primary);
-            color: white;
+            color: #121216;
             transform: scale(0.95);
         }
 
-        /* CART FLOATING BAR */
+        /* FLOATING CART BAR */
         .cart-bar {
             position: fixed;
             bottom: 16px;
             left: 16px;
             right: 16px;
-            background: linear-gradient(135deg, #1f1f26, #141418);
-            border: 1px solid rgba(255, 152, 0, 0.4);
+            background: linear-gradient(135deg, #1d1d26, #141418);
+            border: 1px solid rgba(255, 183, 3, 0.4);
             border-radius: 20px;
-            padding: 12px 20px;
+            padding: 14px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.8), 0 0 15px var(--primary-glow);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px var(--primary-glow);
             z-index: 1000;
         }
 
-        .cart-bar-info {
+        .cart-info {
             font-size: 13px;
             font-weight: 600;
         }
 
-        .btn-open-cart {
-            background: linear-gradient(135deg, #ff9800, #ff5722);
-            color: white;
+        .btn-checkout {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #121216;
             border: none;
-            padding: 10px 18px;
+            padding: 10px 20px;
             border-radius: 12px;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 13px;
             cursor: pointer;
-            box-shadow: 0 4px 10px var(--primary-glow);
+            box-shadow: 0 4px 12px var(--primary-glow);
+            text-transform: uppercase;
         }
 
-        /* MODAL WINDOWS */
+        /* MODALS */
         .modal {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(6px);
             z-index: 2000;
             justify-content: center;
             align-items: flex-end;
         }
 
-        .modal-body {
-            background: #18181c;
+        .modal-content {
+            background: #18181f;
             width: 100%;
-            max-height: 80vh;
+            max-height: 82vh;
             border-radius: 24px 24px 0 0;
             padding: 20px;
             overflow-y: auto;
             border-top: 2px solid var(--primary);
         }
 
-        .modal-head {
+        .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 16px;
             padding-bottom: 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid var(--border);
         }
 
-        .btn-close {
+        .close-btn {
             background: none;
             border: none;
             color: var(--text-sub);
@@ -327,8 +335,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
         }
 
         .qty-box {
@@ -338,12 +346,12 @@
         }
 
         .qty-btn {
-            background: #25252b;
+            background: #25252f;
             color: white;
             border: none;
-            width: 28px;
-            height: 28px;
-            border-radius: 6px;
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
             font-weight: bold;
             cursor: pointer;
         }
@@ -357,111 +365,114 @@
             border-radius: 14px;
             font-weight: 700;
             font-size: 15px;
-            margin-top: 16px;
+            margin-top: 18px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
         }
 
-        /* DONER CHOICE OPTIONS */
-        .option-btn {
+        .size-option-btn {
             width: 100%;
-            background: #222228;
-            border: 1px solid rgba(255,255,255,0.1);
+            background: #23232c;
+            border: 1px solid var(--border);
             color: white;
-            padding: 14px;
-            border-radius: 12px;
+            padding: 14px 16px;
+            border-radius: 14px;
             margin-bottom: 10px;
             font-size: 14px;
             font-weight: 600;
             display: flex;
             justify-content: space-between;
+            align-items: center;
             cursor: pointer;
+            transition: 0.2s;
         }
 
-        .option-btn:hover {
+        .size-option-btn:active {
             border-color: var(--primary);
-            background: rgba(255, 152, 0, 0.1);
+            background: rgba(255, 183, 3, 0.1);
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER WITH LOGO -->
+    <!-- HEADER -->
     <header>
         <div class="header-top">
-            <div class="logo-box">
-                <div class="logo-icon">
+            <div class="brand-box">
+                <div class="brand-logo">
+                    <!-- Логотип-эмблема (огонек фастфуда) -->
                     <svg viewBox="0 0 24 24">
                         <path d="M12 2C10.5 4 9 6.5 9 9c0 2.8 2.2 5 5 5s5-2.2 5-5c0-2.5-1.5-5-3-7m-4.5 9.5C8 10 7 8.5 7 7c-2 1.5-3 3.5-3 6 0 4.4 3.6 8 8 8s8-3.6 8-8c0-1.5-.5-3-1.5-4.2C17 10 15 11 13.5 11c-1.5 0-3-.5-4.5-1.5z"/>
                     </svg>
                 </div>
                 <div>
-                    <div class="brand-name">Uide Fast Food</div>
-                    <div class="brand-sub">Караул</div>
+                    <div class="brand-title">Uide Fast Food</div>
+                    <div class="brand-subtitle">с. Караул</div>
                 </div>
             </div>
-            <button class="lang-btn" id="langBtn" onclick="toggleLang()">KZ / RU</button>
+            <button class="lang-btn" id="langToggleBtn" onclick="toggleLanguage()">KZ / RU</button>
         </div>
         <div class="info-card" id="infoCard">
-            <div>📍 <b>Адрес:</b> с. Караул, ул. Ералы 22Б</div>
-            <div>📞 <b>Тел / WhatsApp:</b> <a href="https://wa.me/77002302331">+7 700 230 23 31</a></div>
-            <div>🚀 <b>Доставка:</b> <span style="color:var(--green)">Есть</span></div>
+            <div>📍 <b>Адрес:</b> ул. Ералы 22Б[cite: 6]</div>
+            <div>📞 <b>Тел / WhatsApp:</b> <a href="https://wa.me/77002302331">+7 700 230 23 31</a>[cite: 6]</div>
+            <div>🚀 <b>Доставка:</b> <span style="color:var(--green)">Есть</span>[cite: 6]</div>
         </div>
     </header>
 
-    <!-- SEARCH BAR -->
-    <div class="search-container">
-        <input type="text" id="searchInput" class="search-bar" placeholder="Поиск блюд..." onkeyup="filterMenu()">
+    <!-- SEARCH -->
+    <div class="search-wrap">
+        <input type="text" id="searchInput" class="search-input" placeholder="Поиск блюд..." onkeyup="filterMenu()">
     </div>
 
     <!-- CATEGORIES -->
     <div class="cats-scroll" id="catsContainer"></div>
 
     <!-- MENU CONTAINER -->
-    <div class="menu-grid" id="menuContainer"></div>
+    <div class="menu-section" id="menuContainer"></div>
 
-    <!-- FLOATING CART -->
+    <!-- FLOATING CART BAR -->
     <div class="cart-bar" id="cartBar" style="display: none;">
-        <div class="cart-bar-info" id="cartBarText">В корзине: 0</div>
-        <button class="btn-open-cart" id="btnCartOpen" onclick="openCart()">Заказать</button>
+        <div class="cart-info" id="cartBarText">В корзине: 0</div>
+        <button class="btn-checkout" id="orderBtnText" onclick="openCart()">Заказать</button>
     </div>
 
     <!-- CART MODAL -->
     <div class="modal" id="cartModal">
-        <div class="modal-body">
-            <div class="modal-head">
-                <h3 id="cartTitle">Ваш заказ</h3>
-                <button class="btn-close" onclick="closeCart()">✕</button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="cartModalTitle">Корзина</h3>
+                <button class="close-btn" onclick="closeCart()">✕</button>
             </div>
-            <div id="cartItems"></div>
-            <div style="margin-top:16px; font-weight:700; font-size:16px; text-align:right;" id="cartTotal">Итого: 0 тг</div>
-            <button class="btn-whatsapp" id="btnWhatsApp" onclick="sendWhatsApp()">
-                <span>Отправить в WhatsApp</span>
+            <div id="cartItemsList"></div>
+            <div style="margin-top: 16px; font-weight: 700; font-size: 16px; text-align: right;" id="cartTotalSum">Итого: 0 тг</div>
+            <button class="btn-whatsapp" id="checkoutBtnText" onclick="sendToWhatsApp()">
+                <span>Отправить заказ в WhatsApp</span>
             </button>
         </div>
     </div>
 
-    <!-- OPTION SELECTION MODAL FOR DONER -->
-    <div class="modal" id="optionModal">
-        <div class="modal-body">
-            <div class="modal-head">
-                <h3 id="optionTitle">Выберите размер</h3>
-                <button class="btn-close" onclick="closeOptions()">✕</button>
+    <!-- DONER SIZE SELECTION MODAL -->
+    <div class="modal" id="sizeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="sizeModalTitle">Выберите порцию</h3>
+                <button class="close-btn" onclick="closeSizeModal()">✕</button>
             </div>
-            <div id="optionList"></div>
+            <div id="sizeOptionsList"></div>
         </div>
     </div>
 
     <script>
         let currentLang = 'ru';
         let cart = {};
-        let activeCategory = 'all';
-        let selectedDoner = null;
+        let currentCategory = 'all';
+        let selectedItemForSize = null;
 
+        // Качественные изображения для категорий из ваших материалов
         const imgDoner = 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=300';
         const imgBurger = 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300';
         const imgWings = 'https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=300';
@@ -470,198 +481,225 @@
         const imgFries = 'https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=300';
         const imgPizza = 'https://images.unsplash.com/photo-1628840042765-356cda07504e?w=300';
         const imgFrenchDog = 'https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=300';
+        const imgBreakfast = 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=300';
         const imgDrink = 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300';
         const imgCoffee = 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300';
-        const imgBreakfast = 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=300';
 
-        const i18n = {
+        const translations = {
             ru: {
                 search: "Поиск блюд...",
-                cartBar: "В корзине:",
+                inCart: "В корзине:",
                 order: "Заказать",
-                cartTitle: "Ваш заказ",
+                cartTitle: "Корзина",
                 total: "Итого:",
                 whatsapp: "Отправить в WhatsApp",
                 add: "В корзину",
-                choose: "Выбрать размер",
+                selectSize: "Выбрать размер",
                 half: "Половинка",
-                full: "Стандартный",
-                cats: { all: "Все", doner: "Донеры", burger: "Бургеры", pizza: "Пицца", breakfast: "Завтраки и супы", snack: "Закуски", drink: "Напитки", coffee: "Кофе" }
+                standard: "Стандартный",
+                cats: {
+                    all: "Все",
+                    doner: "Донеры",
+                    burger: "Бургеры",
+                    pizza: "Пицца",
+                    breakfast: "Завтраки и супы",
+                    snack: "Закуски",
+                    drink: "Напитки",
+                    coffee: "Коктейли и кофе"
+                }
             },
             kz: {
                 search: "Тағамдарды іздеу...",
-                cartBar: "Себетте:",
+                inCart: "Себетте:",
                 order: "Тапсырыс беру",
-                cartTitle: "Сіздің тапсырысыңыз",
+                cartTitle: "Себет",
                 total: "Барлығы:",
                 whatsapp: "WhatsApp-қа жіберу",
                 add: "Себетке",
-                choose: "Өлшемін таңдау",
+                selectSize: "Өлшемін таңдау",
                 half: "Жартысы",
-                full: "Стандартты",
-                cats: { all: "Барлығы", doner: "Донерлер", burger: "Бургерлер", pizza: "Пицца", breakfast: "Таңғы ас пен сорпалар", snack: "Тілсемдер", drink: "Сусындар", coffee: "Кофе" }
+                standard: "Стандартты",
+                cats: {
+                    all: "Барлығы",
+                    doner: "Донерлер",
+                    burger: "Бургерлер",
+                    pizza: "Пицца",
+                    breakfast: "Таңғы ас пен сорпалар",
+                    snack: "Тілсемдер",
+                    drink: "Сусындар",
+                    coffee: "Коктейльдер мен кофе"
+                }
             }
         };
 
         const menuData = [
-            // ДОНЕРЫ С ВЫБОРОМ РАЗМЕРА[cite: 18]
-            { id: 'd1', cat: 'doner', isVariable: true, name: { ru: 'Донер классический', kz: 'Классикалық донер' }, prices: { half: 1000, full: 1600 }, img: imgDoner },
-            { id: 'd2', cat: 'doner', isVariable: true, name: { ru: 'Донер сырный', kz: 'Ірімшікті донер' }, prices: { half: 1000, full: 1600 }, img: imgDoner },
-            { id: 'd3', cat: 'doner', isVariable: true, name: { ru: 'Донер фирменный', kz: 'Фирмалық донер' }, prices: { half: 1000, full: 1600 }, img: imgDoner },
-            { id: 'd4', cat: 'doner', isVariable: true, name: { ru: 'Донер говяжий', kz: 'Сиыр етінен донер' }, prices: { half: 1200, full: 2000 }, img: imgDoner },
-            { id: 'd5', cat: 'doner', isVariable: true, name: { ru: 'Донер жареный', kz: 'Қуырылған донер' }, prices: { half: 1200, full: 1800 }, img: imgDoner },
-            { id: 'd6', cat: 'doner', isVariable: true, name: { ru: 'Батон донер', kz: 'Батон донер' }, prices: { half: 900, full: 1900 }, img: imgDoner },
-            { id: 'd7', cat: 'doner', isVariable: false, name: { ru: 'Твистер', kz: 'Твистер' }, price: 1800, img: imgDoner },
+            // ДОНЕРЫ С ДЕЛЕНИЕМ НА ПОЛОВИНКУ И СТАНДАРТ[cite: 18]
+            { id: 1, cat: 'doner', hasSizes: true, name: { ru: 'Донер классический', kz: 'Классикалық донер' }, prices: { half: 1000, std: 1600 }, img: imgDoner },
+            { id: 2, cat: 'doner', hasSizes: true, name: { ru: 'Донер сырный', kz: 'Ірімшікті донер' }, prices: { half: 1000, std: 1600 }, img: imgDoner },
+            { id: 3, cat: 'doner', hasSizes: true, name: { ru: 'Донер фирменный', kz: 'Фирмалық донер' }, prices: { half: 1000, std: 1600 }, img: imgDoner },
+            { id: 4, cat: 'doner', hasSizes: true, name: { ru: 'Донер говяжий', kz: 'Сиыр етінен донер' }, prices: { half: 1200, std: 2000 }, img: imgDoner },
+            { id: 5, cat: 'doner', hasSizes: true, name: { ru: 'Донер жареный', kz: 'Қуырылған донер' }, prices: { half: 1200, std: 1800 }, img: imgDoner },
+            { id: 6, cat: 'doner', hasSizes: true, name: { ru: 'Батон донер', kz: 'Батон донер' }, prices: { half: 900, std: 1900 }, img: imgDoner },
+            { id: 7, cat: 'doner', hasSizes: false, name: { ru: 'Твистер', kz: 'Твистер' }, price: 1800, img: imgDoner },
 
             // БУРГЕРЫ[cite: 18]
-            { id: 'b1', cat: 'burger', isVariable: false, name: { ru: 'Бургер говяжий', kz: 'Сиыр етінен бургер' }, price: 1800, img: imgBurger },
-            { id: 'b2', cat: 'burger', isVariable: false, name: { ru: 'Бургер со стрипсами', kz: 'Стрипстер қосылған бургер' }, price: 1600, img: imgBurger },
+            { id: 8, cat: 'burger', hasSizes: false, name: { ru: 'Бургер говяжий', kz: 'Сиыр етінен бургер' }, price: 1800, img: imgBurger },
+            { id: 9, cat: 'burger', hasSizes: false, name: { ru: 'Бургер со стрипсами', kz: 'Стрипстер қосылған бургер' }, price: 1600, img: imgBurger },
 
             // ПИЦЦА[cite: 18]
-            { id: 'p1', cat: 'pizza', isVariable: false, name: { ru: 'Пепперони', kz: 'Пепперони пиццасы' }, price: 2500, img: imgPizza },
-            { id: 'p2', cat: 'pizza', isVariable: false, name: { ru: 'Куриный', kz: 'Тауық етінен пицца' }, price: 2500, img: imgPizza },
-            { id: 'p3', cat: 'pizza', isVariable: false, name: { ru: 'Маргарита', kz: 'Маргарита пиццасы' }, price: 2300, img: imgPizza },
-            { id: 'p4', cat: 'pizza', isVariable: false, name: { ru: '4 сезона', kz: '4 маусым пиццасы' }, price: 2800, img: imgPizza },
+            { id: 10, cat: 'pizza', hasSizes: false, name: { ru: 'Пепперони', kz: 'Пепперони пиццасы' }, price: 2500, img: imgPizza },
+            { id: 11, cat: 'pizza', hasSizes: false, name: { ru: 'Куриный', kz: 'Тауық етінен пицца' }, price: 2500, img: imgPizza },
+            { id: 12, cat: 'pizza', hasSizes: false, name: { ru: 'Маргарита', kz: 'Маргарита пиццасы' }, price: 2300, img: imgPizza },
+            { id: 13, cat: 'pizza', hasSizes: false, name: { ru: '4 сезона', kz: '4 маусым пиццасы' }, price: 2800, img: imgPizza },
 
-            // ЗАВТРАКИ & СУПЫ[cite: 18]
-            { id: 'br1', cat: 'breakfast', isVariable: false, name: { ru: 'Английский завтрак', kz: 'Ағылшынша таңғы ас' }, price: 1800, img: imgBreakfast },
-            { id: 'br2', cat: 'breakfast', isVariable: false, name: { ru: 'Том ям', kz: 'Том ям' }, price: 3900, img: imgBreakfast },
-            { id: 'br3', cat: 'breakfast', isVariable: false, name: { ru: 'Классический рамен', kz: 'Классикалық рамен' }, price: 1700, img: imgBreakfast },
-            { id: 'br4', cat: 'breakfast', isVariable: false, name: { ru: 'Сырный рамен', kz: 'Ірімшікті рамен' }, price: 2200, img: imgBreakfast },
+            // ЗАВТРАКИ И СУПЫ[cite: 18]
+            { id: 14, cat: 'breakfast', hasSizes: false, name: { ru: 'Английский завтрак', kz: 'Ағылшынша таңғы ас' }, price: 1800, img: imgBreakfast },
+            { id: 15, cat: 'breakfast', hasSizes: false, name: { ru: 'Том ям', kz: 'Том ям' }, price: 3900, img: imgBreakfast },
+            { id: 16, cat: 'breakfast', hasSizes: false, name: { ru: 'Классический рамен', kz: 'Классикалық рамен' }, price: 1700, img: imgBreakfast },
+            { id: 17, cat: 'breakfast', hasSizes: false, name: { ru: 'Сырный рамен', kz: 'Ірімшікті рамен' }, price: 2200, img: imgBreakfast },
 
-            // ЗАКУСКИ[cite: 18]
-            { id: 's1', cat: 'snack', isVariable: false, name: { ru: 'Острые крылышки (10 шт)', kz: 'Ащы қанаттар (10 дана)' }, price: 1950, img: imgWings },
-            { id: 's2', cat: 'snack', isVariable: false, name: { ru: 'Острые крылышки (20 шт)', kz: 'Ащы қанаттар (20 дана)' }, price: 3950, img: imgWings },
-            { id: 's3', cat: 'snack', isVariable: false, name: { ru: 'Острые крылышки (30-40 шт)', kz: 'Ащы қанаттар (30-40 дана)' }, price: 7950, img: imgWings },
-            { id: 's4', cat: 'snack', isVariable: false, name: { ru: 'Наггетсы (10 шт)', kz: 'Наггетстер (10 дана)' }, price: 1800, img: imgNuggets },
-            { id: 's5', cat: 'snack', isVariable: false, name: { ru: 'Жареный судак (0.5 кг)', kz: 'Қуырылған судак (0.5 кг)' }, price: 3500, img: imgFish },
-            { id: 's6', cat: 'snack', isVariable: false, name: { ru: 'Фри', kz: 'Фри картобы' }, price: 800, img: imgFries },
-            { id: 's7', cat: 'snack', isVariable: false, name: { ru: 'Фри с сосиской', kz: 'Сосискасы бар фри' }, price: 1200, img: imgFries },
-            { id: 's8', cat: 'snack', isVariable: false, name: { ru: 'Френч дог', kz: 'Френч дог' }, price: 1400, img: imgFrenchDog },
+            // ЗАКУСКИ И ФАСТФУД[cite: 18]
+            { id: 18, cat: 'snack', hasSizes: false, name: { ru: 'Острые куриные крылышки (10 шт)', kz: 'Ащы тауық қанаттары (10 дана)' }, price: 1950, img: imgWings },
+            { id: 19, cat: 'snack', hasSizes: false, name: { ru: 'Острые куриные крылышки (20 шт)', kz: 'Ащы тауық қанаттары (20 дана)' }, price: 3950, img: imgWings },
+            { id: 20, cat: 'snack', hasSizes: false, name: { ru: 'Острые куриные крылышки (30 / 40 шт)', kz: 'Ащы тауық қанаттары (30 / 40 дана)' }, price: 7950, img: imgWings },
+            { id: 21, cat: 'snack', hasSizes: false, name: { ru: 'Наггетсы (10 шт)', kz: 'Наггетстер (10 дана)' }, price: 1800, img: imgNuggets },
+            { id: 22, cat: 'snack', hasSizes: false, name: { ru: 'Жареный судак (0,5 кг)', kz: 'Қуырылған судак (0,5 кг)' }, price: 3500, img: imgFish },
+            { id: 23, cat: 'snack', hasSizes: false, name: { ru: 'Фри', kz: 'Фри картобы' }, price: 800, img: imgFries },
+            { id: 24, cat: 'snack', hasSizes: false, name: { ru: 'Фри с сосиской', kz: 'Сосискасы бар фри' }, price: 1200, img: imgFries },
+            { id: 25, cat: 'snack', hasSizes: false, name: { ru: 'Френч дог', kz: 'Френч дог' }, price: 1400, img: imgFrenchDog },
 
             // НАПИТКИ[cite: 18]
-            { id: 'dr1', cat: 'drink', isVariable: false, name: { ru: 'Кока кола 1л', kz: 'Кока кола 1л' }, price: 850, img: imgDrink },
-            { id: 'dr2', cat: 'drink', isVariable: false, name: { ru: 'Кока Кола 0.5 л', kz: 'Кока Кола 0.5 л' }, price: 600, img: imgDrink },
-            { id: 'dr3', cat: 'drink', isVariable: false, name: { ru: 'Фанта / Спрайт 1л', kz: 'Фанта / Спрайт 1л' }, price: 850, img: imgDrink },
-            { id: 'dr4', cat: 'drink', isVariable: false, name: { ru: 'Пиала / Фьюс ти', kz: 'Пиала / Фьюс ти' }, price: 850, img: imgDrink },
-            { id: 'dr5', cat: 'drink', isVariable: false, name: { ru: 'Ава лимонад / апельсин', kz: 'Ава лимонад / апельсин' }, price: 850, img: imgDrink },
+            { id: 26, cat: 'drink', hasSizes: false, name: { ru: 'Кока кола 1л', kz: 'Кока кола 1л' }, price: 850, img: imgDrink },
+            { id: 27, cat: 'drink', hasSizes: false, name: { ru: 'Кока Кола 0.5 л', kz: 'Кока Кола 0.5 л' }, price: 600, img: imgDrink },
+            { id: 28, cat: 'drink', hasSizes: false, name: { ru: 'Фанта', kz: 'Фанта' }, price: 850, img: imgDrink },
+            { id: 29, cat: 'drink', hasSizes: false, name: { ru: 'Спрайт', kz: 'Спрайт' }, price: 850, img: imgDrink },
+            { id: 30, cat: 'drink', hasSizes: false, name: { ru: 'Пиала', kz: 'Пиала' }, price: 850, img: imgDrink },
+            { id: 31, cat: 'drink', hasSizes: false, name: { ru: 'Фьюс ти', kz: 'Фьюс ти' }, price: 850, img: imgDrink },
+            { id: 32, cat: 'drink', hasSizes: false, name: { ru: 'Ава лимонад 1л', kz: 'Ава лимонад 1л' }, price: 850, img: imgDrink },
+            { id: 33, cat: 'drink', hasSizes: false, name: { ru: 'Ава апельсин', kz: 'Ава апельсин' }, price: 850, img: imgDrink },
 
-            // КОФЕ И КОКТЕЙЛИ[cite: 18]
-            { id: 'c1', cat: 'coffee', isVariable: false, name: { ru: 'Молочный коктейль', kz: 'Сүт коктейлі' }, price: 1200, img: imgCoffee },
-            { id: 'c2', cat: 'coffee', name: { ru: 'Клубничный коктейль', kz: 'Құлпынай коктейлі' }, price: 1200, img: imgCoffee },
-            { id: 'c3', cat: 'coffee', isVariable: false, name: { ru: 'Кофе капучино / латте', kz: 'Капучино / латте кофесі' }, price: 1000, img: imgCoffee },
-            { id: 'c4', cat: 'coffee', isVariable: false, name: { ru: 'Айс латте', kz: 'Айс латте' }, price: 1200, img: imgCoffee },
-            { id: 'c5', cat: 'coffee', isVariable: false, name: { ru: 'Чай / Кофе 3в1', kz: 'Шай / Кофе 3в1' }, price: 300, img: imgCoffee }
+            // КОКТЕЙЛИ И КОФЕ[cite: 18]
+            { id: 34, cat: 'coffee', hasSizes: false, name: { ru: 'Молочный коктейль', kz: 'Сүт коктейлі' }, price: 1200, img: imgCoffee },
+            { id: 35, cat: 'coffee', hasSizes: false, name: { ru: 'Клубничный коктейль', kz: 'Құлпынай коктейлі' }, price: 1200, img: imgCoffee },
+            { id: 36, cat: 'coffee', hasSizes: false, name: { ru: 'Кофе капучино', kz: 'Капучино кофесі' }, price: 1000, img: imgCoffee },
+            { id: 37, cat: 'coffee', hasSizes: false, name: { ru: 'Кофе латте', kz: 'Латте кофесі' }, price: 1000, img: imgCoffee },
+            { id: 38, cat: 'coffee', hasSizes: false, name: { ru: 'Айс латте', kz: 'Айс латте' }, price: 1200, img: imgCoffee },
+            { id: 39, cat: 'coffee', hasSizes: false, name: { ru: 'Чай 3в1', kz: 'Шай 3в1' }, price: 300, img: imgCoffee },
+            { id: 40, cat: 'coffee', hasSizes: false, name: { ru: 'Кофе 3в1', kz: 'Кофе 3в1' }, price: 300, img: imgCoffee }
         ];
 
-        function toggleLang() {
+        function toggleLanguage() {
             currentLang = currentLang === 'ru' ? 'kz' : 'ru';
-            document.getElementById('langBtn').innerText = currentLang === 'ru' ? 'KZ / RU' : 'RU / KZ';
-            document.getElementById('searchInput').placeholder = i18n[currentLang].search;
-            document.getElementById('btnCartOpen').innerText = i18n[currentLang].order;
-            document.getElementById('cartTitle').innerText = i18n[currentLang].cartTitle;
-            document.getElementById('btnWhatsApp').innerText = i18n[currentLang].whatsapp;
+            document.getElementById('langToggleBtn').innerText = currentLang === 'ru' ? 'KZ / RU' : 'RU / KZ';
+            document.getElementById('searchInput').placeholder = translations[currentLang].search;
+            document.getElementById('orderBtnText').innerText = translations[currentLang].order;
+            document.getElementById('cartModalTitle').innerText = translations[currentLang].cartTitle;
+            document.getElementById('checkoutBtnText').innerText = translations[currentLang].whatsapp;
             
-            renderCats();
+            renderCategories();
             renderMenu();
-            updateCart();
+            updateCartBar();
         }
 
-        function renderCats() {
+        function renderCategories() {
             const cats = ['all', 'doner', 'burger', 'pizza', 'breakfast', 'snack', 'drink', 'coffee'];
             const container = document.getElementById('catsContainer');
             container.innerHTML = cats.map(c => `
-                <button class="cat-chip ${activeCategory === c ? 'active' : ''}" onclick="selectCat('${c}')">
-                    ${i18n[currentLang].cats[c]}
+                <button class="cat-chip ${currentCategory === c ? 'active' : ''}" onclick="selectCategory('${c}')">
+                    ${translations[currentLang].cats[c]}
                 </button>
             `).join('');
         }
 
-        function selectCat(c) {
-            activeCategory = c;
-            renderCats();
+        function selectCategory(cat) {
+            currentCategory = cat;
+            renderCategories();
             renderMenu();
         }
 
         function renderMenu() {
             const container = document.getElementById('menuContainer');
-            const search = document.getElementById('searchInput').value.toLowerCase();
-            
-            let filtered = menuData.filter(item => {
-                let matchCat = activeCategory === 'all' || item.cat === activeCategory;
-                let matchSearch = item.name[currentLang].toLowerCase().includes(search);
-                return matchCat && matchSearch;
+            const query = document.getElementById('searchInput').value.toLowerCase();
+
+            let items = menuData.filter(item => {
+                let matchCat = currentCategory === 'all' || item.cat === currentCategory;
+                let matchQuery = item.name[currentLang].toLowerCase().includes(query);
+                return matchCat && matchQuery;
             });
 
-            if (filtered.length === 0) {
+            if (items.length === 0) {
                 container.innerHTML = `<div style="text-align:center; color:var(--text-sub); margin-top:40px;">Ничего не найдено</div>`;
                 return;
             }
 
-            container.innerHTML = filtered.map(item => {
-                let priceText = item.isVariable 
-                    ? `${item.prices.half} - ${item.prices.full} тг` 
+            container.innerHTML = items.map(item => {
+                let priceDisplay = item.hasSizes 
+                    ? `${item.prices.half} тг / ${item.prices.std} тг` 
                     : `${item.price} тг`;
 
-                let action = item.isVariable 
-                    ? `openOptions('${item.id}')` 
-                    : `addItem('${item.id}', '${item.name[currentLang]}', ${item.price})`;
+                let subText = item.hasSizes ? `<div class="card-price-sub">${translations[currentLang].half} / ${translations[currentLang].standard}</div>` : '';
+                
+                let action = item.hasSizes 
+                    ? `openSizeModal(${item.id})` 
+                    : `addToCart('${item.id}', '${item.name[currentLang]}', ${item.price})`;
 
-                let btnLabel = item.isVariable ? i18n[currentLang].choose : i18n[currentLang].add;
+                let btnLabel = item.hasSizes ? translations[currentLang].selectSize : translations[currentLang].add;
 
                 return `
                     <div class="menu-card">
                         <img src="${item.img}" class="card-img" alt="${item.name[currentLang]}">
-                        <div class="card-details">
-                            <div class="card-title">${item.name[currentLang]}</div>
-                            <div class="card-price">${priceText}</div>
+                        <div class="card-info">
+                            <div class="card-name">${item.name[currentLang]}</div>
+                            <div class="card-price">${priceDisplay}</div>
+                            ${subText}
                         </div>
-                        <button class="btn-add" onclick="${action}">${btnLabel}</button>
+                        <button class="btn-action" onclick="${action}">${btnLabel}</button>
                     </div>
                 `;
             }).join('');
         }
 
-        function openOptions(id) {
-            const item = menuData.find(i => i.id === id);
-            selectedDoner = item;
-            const container = document.getElementById('optionList');
+        function openSizeModal(id) {
+            selectedItemForSize = menuData.find(i => i.id === id);
+            const list = document.getElementById('sizeOptionsList');
             
-            container.innerHTML = `
-                <button class="option-btn" onclick="selectOption('half')">
-                    <span>${i18n[currentLang].half}</span>
-                    <span>${item.prices.half} тг</span>
+            list.innerHTML = `
+                <button class="size-option-btn" onclick="chooseSize('half', ${selectedItemForSize.prices.half})">
+                    <span>${translations[currentLang].half}</span>
+                    <span style="color:var(--primary); font-weight:700;">${selectedItemForSize.prices.half} тг</span>
                 </button>
-                <button class="option-btn" onclick="selectOption('full')">
-                    <span>${i18n[currentLang].full}</span>
-                    <span>${item.prices.full} тг</span>
+                <button class="size-option-btn" onclick="chooseSize('std', ${selectedItemForSize.prices.std})">
+                    <span>${translations[currentLang].standard}</span>
+                    <span style="color:var(--primary); font-weight:700;">${selectedItemForSize.prices.std} тг</span>
                 </button>
             `;
-            document.getElementById('optionModal').style.display = 'flex';
+            document.getElementById('sizeModal').style.display = 'flex';
         }
 
-        function selectOption(size) {
-            let title = `${selectedDoner.name[currentLang]} (${size === 'half' ? i18n[currentLang].half : i18n[currentLang].full})`;
-            let price = selectedDoner.prices[size];
-            let itemKey = `${selectedDoner.id}_${size}`;
+        function chooseSize(sizeType, price) {
+            let sizeName = sizeType === 'half' ? translations[currentLang].half : translations[currentLang].standard;
+            let fullName = `${selectedItemForSize.name[currentLang]} (${sizeName})`;
+            let cartKey = `${selectedItemForSize.id}_${sizeType}`;
             
-            addItem(itemKey, title, price);
-            closeOptions();
+            addToCart(cartKey, fullName, price);
+            closeSizeModal();
         }
 
-        function closeOptions() {
-            document.getElementById('optionModal').style.display = 'none';
+        function closeSizeModal() {
+            document.getElementById('sizeModal').style.display = 'none';
         }
 
-        function filterMenu() { renderMenu(); }
+        function filterMenu() {
+            renderMenu();
+        }
 
-        function addItem(key, name, price) {
+        function addToCart(key, name, price) {
             if (cart[key]) {
                 cart[key].qty++;
             } else {
                 cart[key] = { name, price, qty: 1 };
             }
-            updateCart();
+            updateCartBar();
         }
 
         function changeQty(key, delta) {
@@ -669,16 +707,16 @@
                 cart[key].qty += delta;
                 if (cart[key].qty <= 0) delete cart[key];
             }
-            updateCart();
+            updateCartBar();
             renderCartModal();
         }
 
-        function updateCart() {
-            let totalQty = Object.values(cart).reduce((a, b) => a + b.qty, 0);
+        function updateCartBar() {
+            let totalCount = Object.values(cart).reduce((a, b) => a + b.qty, 0);
             let bar = document.getElementById('cartBar');
-            if (totalQty > 0) {
+            if (totalCount > 0) {
                 bar.style.display = 'flex';
-                document.getElementById('cartBarText').innerText = `${i18n[currentLang].cartBar} ${totalQty} шт.`;
+                document.getElementById('cartBarText').innerText = `${translations[currentLang].inCart} ${totalCount} шт.`;
             } else {
                 bar.style.display = 'none';
                 closeCart();
@@ -695,15 +733,15 @@
         }
 
         function renderCartModal() {
-            const container = document.getElementById('cartItems');
-            let sum = 0;
-            container.innerHTML = '';
+            const list = document.getElementById('cartItemsList');
+            let totalSum = 0;
+            list.innerHTML = '';
 
             for (let k in cart) {
                 let item = cart[k];
                 let itemSum = item.price * item.qty;
-                sum += itemSum;
-                container.innerHTML += `
+                totalSum += itemSum;
+                list.innerHTML += `
                     <div class="cart-row">
                         <div>
                             <div style="font-weight:600; font-size:14px;">${item.name}</div>
@@ -717,25 +755,25 @@
                     </div>
                 `;
             }
-            document.getElementById('cartTotal').innerText = `${i18n[currentLang].total} ${sum} тг`;
+            document.getElementById('cartTotalSum').innerText = `${translations[currentLang].total} ${totalSum} тг`;
         }
 
-        function sendWhatsApp() {
-            let msg = currentLang === 'ru' ? "Здравствуйте! Хочу сделать заказ:\n\n" : "Сәлеметсіз бе! Тапсырыс бергім келеді:\n\n";
-            let sum = 0;
+        function sendToWhatsApp() {
+            let text = currentLang === 'ru' ? "Здравствуйте! Хочу сделать заказ:\n\n" : "Сәлеметсіз бе! Тапсырыс бергім келеді:\n\n";
+            let totalSum = 0;
             for (let k in cart) {
                 let item = cart[k];
                 let itemSum = item.price * item.qty;
-                sum += itemSum;
-                msg += `• ${item.name} x${item.qty} — ${itemSum} тг\n`;
+                totalSum += itemSum;
+                text += `• ${item.name} x${item.qty} — ${itemSum} тг\n`;
             }
-            msg += `\n*${i18n[currentLang].total} ${sum} тг*`;
+            text += `\n*${translations[currentLang].total} ${totalSum} тг*`;
             
-            window.open(`https://wa.me/77002302331?text=${encodeURIComponent(msg)}`, '_blank');
+            window.open(`https://wa.me/77002302331?text=${encodeURIComponent(text)}`, '_blank');
         }
 
         window.onload = () => {
-            renderCats();
+            renderCategories();
             renderMenu();
         };
     </script>
