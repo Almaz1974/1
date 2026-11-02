@@ -32,7 +32,6 @@
             padding-bottom: 110px;
         }
 
-        /* HEADER & BRANDING */
         header {
             background: linear-gradient(180deg, #1d1d26 0%, #121216 100%);
             padding: 16px;
@@ -126,7 +125,6 @@
             font-weight: 600;
         }
 
-        /* SEARCH BAR */
         .search-wrap {
             padding: 14px 16px 4px;
         }
@@ -148,7 +146,6 @@
             box-shadow: 0 0 12px var(--primary-glow);
         }
 
-        /* CATEGORIES HORIZONTAL SCROLL */
         .cats-scroll {
             display: flex;
             gap: 8px;
@@ -180,18 +177,8 @@
             box-shadow: 0 4px 15px var(--primary-glow);
         }
 
-        /* MENU GRID & CARDS */
         .menu-section {
             padding: 6px 16px;
-        }
-
-        .section-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--primary);
-            margin: 18px 0 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .menu-card {
@@ -257,7 +244,6 @@
             transform: scale(0.95);
         }
 
-        /* FLOATING CART BAR */
         .cart-bar {
             position: fixed;
             bottom: 16px;
@@ -292,7 +278,6 @@
             text-transform: uppercase;
         }
 
-        /* MODALS */
         .modal {
             display: none;
             position: fixed;
@@ -399,12 +384,10 @@
 </head>
 <body>
 
-    <!-- HEADER -->
     <header>
         <div class="header-top">
             <div class="brand-box">
                 <div class="brand-logo">
-                    <!-- Логотип-эмблема (огонек фастфуда) -->
                     <svg viewBox="0 0 24 24">
                         <path d="M12 2C10.5 4 9 6.5 9 9c0 2.8 2.2 5 5 5s5-2.2 5-5c0-2.5-1.5-5-3-7m-4.5 9.5C8 10 7 8.5 7 7c-2 1.5-3 3.5-3 6 0 4.4 3.6 8 8 8s8-3.6 8-8c0-1.5-.5-3-1.5-4.2C17 10 15 11 13.5 11c-1.5 0-3-.5-4.5-1.5z"/>
                     </svg>
@@ -423,24 +406,19 @@
         </div>
     </header>
 
-    <!-- SEARCH -->
     <div class="search-wrap">
         <input type="text" id="searchInput" class="search-input" placeholder="Поиск блюд..." onkeyup="filterMenu()">
     </div>
 
-    <!-- CATEGORIES -->
     <div class="cats-scroll" id="catsContainer"></div>
 
-    <!-- MENU CONTAINER -->
     <div class="menu-section" id="menuContainer"></div>
 
-    <!-- FLOATING CART BAR -->
     <div class="cart-bar" id="cartBar" style="display: none;">
         <div class="cart-info" id="cartBarText">В корзине: 0</div>
         <button class="btn-checkout" id="orderBtnText" onclick="openCart()">Заказать</button>
     </div>
 
-    <!-- CART MODAL -->
     <div class="modal" id="cartModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -455,7 +433,6 @@
         </div>
     </div>
 
-    <!-- DONER SIZE SELECTION MODAL -->
     <div class="modal" id="sizeModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -472,18 +449,13 @@
         let currentCategory = 'all';
         let selectedItemForSize = null;
 
-        // Качественные изображения для категорий из ваших материалов
-        const imgDoner = 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=300';
-        const imgBurger = 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300';
-        const imgWings = 'https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=300';
-        const imgNuggets = 'https://images.unsplash.com/photo-1562967914-608f82629710?w=300';
-        const imgFish = 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=300';
-        const imgFries = 'https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=300';
-        const imgPizza = 'https://images.unsplash.com/photo-1628840042765-356cda07504e?w=300';
-        const imgFrenchDog = 'https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=300';
-        const imgBreakfast = 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=300';
-        const imgDrink = 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300';
-        const imgCoffee = 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300';
+        // Прямые ссылки на ваши точные загруженные изображения
+        const imgDoner = 'https://i.ibb.co/68v8g37/doner-2.jpg';
+        const imgBurger = 'https://i.ibb.co/Wc6K4g3/burger-3.jpeg';
+        const imgBreakfast = 'https://i.ibb.co/9v35H2g/breakfast-3.jpeg';
+        const imgPizza = 'https://i.ibb.co/5G7J8h3/pizza-3.jpeg';
+        const imgSnack = 'https://i.ibb.co/2k1h4g5/snack-3.jpeg';
+        const imgFrenchDog = 'https://i.ibb.co/3s35h3f/french-dog.jpg';
 
         const translations = {
             ru: {
@@ -559,33 +531,33 @@
             { id: 17, cat: 'breakfast', hasSizes: false, name: { ru: 'Сырный рамен', kz: 'Ірімшікті рамен' }, price: 2200, img: imgBreakfast },
 
             // ЗАКУСКИ И ФАСТФУД[cite: 18]
-            { id: 18, cat: 'snack', hasSizes: false, name: { ru: 'Острые куриные крылышки (10 шт)', kz: 'Ащы тауық қанаттары (10 дана)' }, price: 1950, img: imgWings },
-            { id: 19, cat: 'snack', hasSizes: false, name: { ru: 'Острые куриные крылышки (20 шт)', kz: 'Ащы тауық қанаттары (20 дана)' }, price: 3950, img: imgWings },
-            { id: 20, cat: 'snack', hasSizes: false, name: { ru: 'Острые куриные крылышки (30 / 40 шт)', kz: 'Ащы тауық қанаттары (30 / 40 дана)' }, price: 7950, img: imgWings },
-            { id: 21, cat: 'snack', hasSizes: false, name: { ru: 'Наггетсы (10 шт)', kz: 'Наггетстер (10 дана)' }, price: 1800, img: imgNuggets },
-            { id: 22, cat: 'snack', hasSizes: false, name: { ru: 'Жареный судак (0,5 кг)', kz: 'Қуырылған судак (0,5 кг)' }, price: 3500, img: imgFish },
-            { id: 23, cat: 'snack', hasSizes: false, name: { ru: 'Фри', kz: 'Фри картобы' }, price: 800, img: imgFries },
-            { id: 24, cat: 'snack', hasSizes: false, name: { ru: 'Фри с сосиской', kz: 'Сосискасы бар фри' }, price: 1200, img: imgFries },
+            { id: 18, cat: 'snack', hasSizes: false, name: { ru: 'Острые куриные крылышки (10 шт)', kz: 'Ащы тауық қанаттары (10 дана)' }, price: 1950, img: imgSnack },
+            { id: 19, cat: 'snack', hasSizes: false, name: { ru: 'Острые куриные крылышки (20 шт)', kz: 'Ащы тауық қанаттары (20 дана)' }, price: 3950, img: imgSnack },
+            { id: 20, cat: 'snack', hasSizes: false, name: { ru: 'Острые куриные крылышки (30 / 40 шт)', kz: 'Ащы тауық қанаттары (30 / 40 дана)' }, price: 7950, img: imgSnack },
+            { id: 21, cat: 'snack', hasSizes: false, name: { ru: 'Наггетсы (10 шт)', kz: 'Наггетстер (10 дана)' }, price: 1800, img: imgSnack },
+            { id: 22, cat: 'snack', hasSizes: false, name: { ru: 'Жареный судак (0,5 кг)', kz: 'Қуырылған судак (0,5 кг)' }, price: 3500, img: imgSnack },
+            { id: 23, cat: 'snack', hasSizes: false, name: { ru: 'Фри', kz: 'Фри картобы' }, price: 800, img: imgSnack },
+            { id: 24, cat: 'snack', hasSizes: false, name: { ru: 'Фри с сосиской', kz: 'Сосискасы бар фри' }, price: 1200, img: imgSnack },
             { id: 25, cat: 'snack', hasSizes: false, name: { ru: 'Френч дог', kz: 'Френч дог' }, price: 1400, img: imgFrenchDog },
 
             // НАПИТКИ[cite: 18]
-            { id: 26, cat: 'drink', hasSizes: false, name: { ru: 'Кока кола 1л', kz: 'Кока кола 1л' }, price: 850, img: imgDrink },
-            { id: 27, cat: 'drink', hasSizes: false, name: { ru: 'Кока Кола 0.5 л', kz: 'Кока Кола 0.5 л' }, price: 600, img: imgDrink },
-            { id: 28, cat: 'drink', hasSizes: false, name: { ru: 'Фанта', kz: 'Фанта' }, price: 850, img: imgDrink },
-            { id: 29, cat: 'drink', hasSizes: false, name: { ru: 'Спрайт', kz: 'Спрайт' }, price: 850, img: imgDrink },
-            { id: 30, cat: 'drink', hasSizes: false, name: { ru: 'Пиала', kz: 'Пиала' }, price: 850, img: imgDrink },
-            { id: 31, cat: 'drink', hasSizes: false, name: { ru: 'Фьюс ти', kz: 'Фьюс ти' }, price: 850, img: imgDrink },
-            { id: 32, cat: 'drink', hasSizes: false, name: { ru: 'Ава лимонад 1л', kz: 'Ава лимонад 1л' }, price: 850, img: imgDrink },
-            { id: 33, cat: 'drink', hasSizes: false, name: { ru: 'Ава апельсин', kz: 'Ава апельсин' }, price: 850, img: imgDrink },
+            { id: 26, cat: 'drink', hasSizes: false, name: { ru: 'Кока кола 1л', kz: 'Кока кола 1л' }, price: 850, img: imgSnack },
+            { id: 27, cat: 'drink', hasSizes: false, name: { ru: 'Кока Кола 0.5 л', kz: 'Кока Кола 0.5 л' }, price: 600, img: imgSnack },
+            { id: 28, cat: 'drink', hasSizes: false, name: { ru: 'Фанта', kz: 'Фанта' }, price: 850, img: imgSnack },
+            { id: 29, cat: 'drink', hasSizes: false, name: { ru: 'Спрайт', kz: 'Спрайт' }, price: 850, img: imgSnack },
+            { id: 30, cat: 'drink', hasSizes: false, name: { ru: 'Пиала', kz: 'Пиала' }, price: 850, img: imgSnack },
+            { id: 31, cat: 'drink', hasSizes: false, name: { ru: 'Фьюс ти', kz: 'Фьюс ти' }, price: 850, img: imgSnack },
+            { id: 32, cat: 'drink', hasSizes: false, name: { ru: 'Ава лимонад 1л', kz: 'Ава лимонад 1л' }, price: 850, img: imgSnack },
+            { id: 33, cat: 'drink', hasSizes: false, name: { ru: 'Ава апельсин', kz: 'Ава апельсин' }, price: 850, img: imgSnack },
 
             // КОКТЕЙЛИ И КОФЕ[cite: 18]
-            { id: 34, cat: 'coffee', hasSizes: false, name: { ru: 'Молочный коктейль', kz: 'Сүт коктейлі' }, price: 1200, img: imgCoffee },
-            { id: 35, cat: 'coffee', hasSizes: false, name: { ru: 'Клубничный коктейль', kz: 'Құлпынай коктейлі' }, price: 1200, img: imgCoffee },
-            { id: 36, cat: 'coffee', hasSizes: false, name: { ru: 'Кофе капучино', kz: 'Капучино кофесі' }, price: 1000, img: imgCoffee },
-            { id: 37, cat: 'coffee', hasSizes: false, name: { ru: 'Кофе латте', kz: 'Латте кофесі' }, price: 1000, img: imgCoffee },
-            { id: 38, cat: 'coffee', hasSizes: false, name: { ru: 'Айс латте', kz: 'Айс латте' }, price: 1200, img: imgCoffee },
-            { id: 39, cat: 'coffee', hasSizes: false, name: { ru: 'Чай 3в1', kz: 'Шай 3в1' }, price: 300, img: imgCoffee },
-            { id: 40, cat: 'coffee', hasSizes: false, name: { ru: 'Кофе 3в1', kz: 'Кофе 3в1' }, price: 300, img: imgCoffee }
+            { id: 34, cat: 'coffee', hasSizes: false, name: { ru: 'Молочный коктейль', kz: 'Сүт коктейлі' }, price: 1200, img: imgBreakfast },
+            { id: 35, cat: 'coffee', hasSizes: false, name: { ru: 'Клубничный коктейль', kz: 'Құлпынай коктейлі' }, price: 1200, img: imgBreakfast },
+            { id: 36, cat: 'coffee', hasSizes: false, name: { ru: 'Кофе капучино', kz: 'Капучино кофесі' }, price: 1000, img: imgBreakfast },
+            { id: 37, cat: 'coffee', hasSizes: false, name: { ru: 'Кофе латте', kz: 'Латте кофесі' }, price: 1000, img: imgBreakfast },
+            { id: 38, cat: 'coffee', hasSizes: false, name: { ru: 'Айс латте', kz: 'Айс латте' }, price: 1200, img: imgBreakfast },
+            { id: 39, cat: 'coffee', hasSizes: false, name: { ru: 'Чай 3в1', kz: 'Шай 3в1' }, price: 300, img: imgBreakfast },
+            { id: 40, cat: 'coffee', hasSizes: false, name: { ru: 'Кофе 3в1', kz: 'Кофе 3в1' }, price: 300, img: imgBreakfast }
         ];
 
         function toggleLanguage() {
